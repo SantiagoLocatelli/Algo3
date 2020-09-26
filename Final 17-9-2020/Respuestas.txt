@@ -1,0 +1,44 @@
+
+Consigna 1
+
+a) 
+
+Primero que nada, no utliza el Polimorfismo, y a su vez, incumple la idea de Tell Don't Ask,
+es decir, lo que se esta haciendo es preguntar al objeto por su tipo, y de ahi decidir que hacer,
+cuando en realidad, lo que se deberia hacer es simplemente decirle al objeto que hacer, y que 
+este mismo se encargue del como. Esto se ve reflejado en la clase Auto.
+
+
+Asi como esta ahora, Moto y Auto, comparte una misma caracteristica, que es que ambos son un vehiculo,
+y esto no se ve reflejado en el codigo, si se tuviese una clase abstracta, o alguna interfaz vehiculo,
+es decir, alguna abstraccion que me permita el generalizar. El hacer esto le daria mucha mas flexibilidad
+al modelo, ya que si quiero hacer un metodo de alguna clase X, que reciba vehiculos, pero sin especificar
+que tipo de vehiculos le paso, no voy a poder si lo dejo como esta, entonces ahi entra en juego el tener una
+interfaz, o alguna clase abstracta. Si bien para lo que es el enunciado no es realmente necesaria la interfaz, 
+ya que no se hace ningun test que involucre a esta misma.
+
+Son los vehiculos quienes se encargan de cargar y descargar, cuando no es su responsabilidad, me parece que
+con un atributo PortaCarga, y que se le delege el comportamiento a este, seria mas adecuado.
+
+Con respecto al test, no es descriptivo lo que esta probando, es decir, que este deberia tener un nombre
+el cual describa correctamente que se esta probando, para que en el caso de que falle, se sepa rapido que 
+fue lo que fallo, y uno no termine perdiendo tiempo en descifrar que fallo. Y de hecho, en el test
+proporcionado, se verifican bastantes cosas independientes en el mismo, tampoco esta bueno, porque
+si falla, habria que ir debuggeando para ver cual de todas las cosas fue la que fallo.
+
+Tambien, en un futuro puede que sea necesario la utilizacion de un atributo estado, para ver si el estado
+es funcional, o no funcional, y se podria usar el patron de diseño State, igualmente, esto se pasa de lo pedido,
+y se estaria haciendo cosas demas sin ser pedidas.
+
+
+b)
+
+Incumple con el principio Open - Closed, Single Responsability, Inversion de la dependencia.
+
+
+Consigna 2
+
+Para ser honesto, veo fallas en mi modelo tambien, pero por el tiempo dado no se me ocurrio ninguna otra solucion mejor.
+
+
+Detalles de implementacion

@@ -1,0 +1,26 @@
+Santiago Locatelli, 104107
+
+Primero noto que nunca se inicializa lo puntos del pokemon, es decir, tiene un metodo de clase que lo inicializa con nombre, este mismo metodo llama al initialize de de Pokemon, pero en ningun momento se inicializan los puntos de pokemon.
+Tambien me parece poco claro el uso del atributo de puntos, puntos de que especificamente? de vida? de ataque? Aunque no se si sera algo de Pokemon (me refiero a la serie) que no entiendo.
+El metodo atacarCon: a: tiene bad smells por todos lados, jaja. 
+Hay usos de numeros magicos, por ejemplo, cuando se usa los numeros para restar la vida de otro pokemon, uno termina deduciendo que se deben al ataque del pokeon que esta atacando, pero no es buena practica.
+Tambien se esta utilizando getter del atributo puntos para restarle la vida, cosa que rompe con el encapsulamiento. Probablemente, lo mejor para solucionar esto es hacer un metodo, que podria llamarse, recibirAtaqueDe: fuerzaDeAtaque
+Tampoco se esta haciedo uso de excepciones, se podria usar para cuando el Pokemon no entiende el ataque por ejemplo.
+El setter nombre de Pokemon rompe con el principio de diseño de Single Responsability, ademas de que esto asi como esta, solo le pondra puntos a dos pokemones, pikachu y charmander.
+
+agregarAtaqueCon: fuerza yNombre: nombre
+
+atacarCon: unNombreAtaque a: otroPokemon
+	| ataque |
+	ataque := ataques detect: [ :nombreAtaque | nombreAtaque = unNombreAtaque ] ifNone: [ nil ].
+	ataque isNil
+		ifTrue: [ Transcript show: 'El pokemon ', nombre, ' no entiende el ataque ', unNombreAtaque, '.'; cr ]
+		ifFalse: [ 
+			ataque = 'ImpacTrueno'
+				ifTrue: [ otroPokemon puntos: (otroPokemon puntos - 10) ]
+				ifFalse:	[ 
+					ataque = 'Brasas'
+						ifTrue: [ otroPokemon puntos: (otroPokemon puntos - 20) ]
+						ifFalse: [ Transcript show: 'El pokemon ', nombre, ' no entiende el ataque ', unNombreAtaque, '.'; cr ]
+				]
+		]

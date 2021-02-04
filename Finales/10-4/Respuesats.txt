@@ -1,0 +1,27 @@
+Consigna 1:
+
+a)
+La clase ComponenteElectrico: La estructura de esta clase es bastante rigida. Uno de los problemas que veo 
+es que no se usa el polimorfismo, es decir, en ambos metodos definidos se utilizan ifs para saber de que tipo 
+es el componente, y de ahi saber como proceder. Aca claramente se rompe la idea del Tell Don't Ask, o sea, que 
+no se deberia preguntarle al objeto de que tipo es, y de ahi decidir que hacer (Programacion Procedural), lo
+que se deberia hacer es decirle al objeto que hacer, y que este mismo se encargue del como. Con el uso del
+Polimorfismo se descartaria el uso del string para determinar el tipo de componente.
+
+Tambien, pasa algo parecido con la clase Casa, por ejemplo, en el metodo getGastoTotal por cada 
+ComponenteElectrico que se agregue se debera agregar un while para ese componente en especifico. Y ademas,
+tener que agregar una lista para cada componente.
+
+Cada vez que se quiera agregar un nuevo tipo de ComponenteElectrico se deberia agregar una condicion para condicional
+que haya, por lo tanto, la clase no esta cerrada a cambios. 
+
+Los atributos de las clases estan como publicos, estos deberian ser privados para evitar que se rompa el encapsulamiento,
+y en caso de necesitar algun atributo, se puede hacer getter, aunque se deberia limitar bastante el uso de estos.
+
+Tambien, otra cosa que pasa con los atributos es que en la clase ComponenteElectrico se definen una cantidad de atributos,
+que tal vez, no sean necesarios para todos los componentes, por ejemplo, el atributo calorias solamente lo usa en caso de 
+que el tipo sea una estufa, pero en los demas no, esto no esta bueno.
+
+b)
+Open - Close.
+Inversion de la dependencia.
